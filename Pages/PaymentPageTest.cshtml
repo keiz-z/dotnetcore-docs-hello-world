@@ -1,9 +1,21 @@
 @page
 @model PaymentPageTestModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "決済画面";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <h2>@ViewData["Title"]</h2>
+    <!-- 支払うボタン -->
+    <button id="payButton">支払う</button>
 
+    <script src="~/path/to/your/script.js"></script>
+</body>
+</html>
