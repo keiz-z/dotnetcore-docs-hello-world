@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace YourAppNamespace
+namespace dotnetcoresample.Pages;
 {
     public class PaymentPageTestModel : PageModel
     {
