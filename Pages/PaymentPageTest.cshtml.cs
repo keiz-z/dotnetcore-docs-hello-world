@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace dotnetcoresample.Pages;
-{
+
     public class PaymentPageTestModel : PageModel
     {
         // ここにページに関連するプロパティやメソッドを定義します。
@@ -22,4 +22,3 @@ namespace dotnetcoresample.Pages;
             return RedirectToPage("PaymentSuccess");
         }
     }
-}
