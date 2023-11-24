@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'test-ksu-portal'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D6FBEB681C764EE0859711C4A24220FC }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E9FD8D28DF5949509F9EDB6CD3D99B2D }}
           package: .
