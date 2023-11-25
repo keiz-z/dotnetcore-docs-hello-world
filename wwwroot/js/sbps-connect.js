@@ -20,7 +20,7 @@ function f_submit() {
     order.order_id              = "45ee8440ce0104d3970089feeaf041be";
     order.item_id               = "T_0003";
     order.pay_item_id           = "";
-    order.item_name             = "テスト商品";
+    order.item_name             = "testproduct";
     order.tax                   = "";
     order.amount                = "1";
     order.pay_type              = "0";
@@ -39,7 +39,7 @@ function f_submit() {
     order.free2                 = "";
     order.free3                 = "";
     order.free_csv_input        =
-        "LAST_NAME=鈴木,FIRST_NAME=太郎,LAST_NAME_KANA=スズキ,FIRST_NAME_KANA=タロウ,FIRST_ZIP=210,SECOND_ZIP=0001,ADD1=岐阜県,ADD2=あああ市あああ町,ADD3=,TEL=12345679801,MAIL=aaaa@bb.jp,ITEM_NAME=TEST ITEM";
+        "LAST_NAME=Suzuki,FIRST_NAME=太郎,LAST_NAME_KANA=スズキ,FIRST_NAME_KANA=タロウ,FIRST_ZIP=210,SECOND_ZIP=0001,ADD1=岐阜県,ADD2=あああ市あああ町,ADD3=,TEL=12345679801,MAIL=aaaa@bb.jp,ITEM_NAME=TEST ITEM";
     order.request_date          = "20231125111718";
     order.limit_second          = "";
     order.hashkey               = "c48e0e2c7d04f0954594f14c7801bd430ca6263e";
