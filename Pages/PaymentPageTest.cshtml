@@ -14,6 +14,537 @@
 
 
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html lang="ja" dir="ltr">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta name="description" content="SBペイメントサービスの決済システムを利用したアプリケーションサービスの開発支援（スマートフォン用SDK提供やサンドボックス）、弊社サービスソルーションを開発者に提供いたします。" />
+	<meta name="keywords" content="決済システム,課金システム,開発,スマートフォン,API,SDK,仮想通貨,アンドロイド,iPhone,プラットフォーム,ソフトバンク,ペイメントサービス" />
+	<title>サンドボックス｜デベロッパーコンソール【ネット決済導入支援】</title>
+
+	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+
+
+	<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/css/basic.css" />
+	<link rel="stylesheet" type="text/css" href="/css/common_rayout.css" />
+	<link rel="stylesheet" type="text/css" href="/css/sandbox.css" />
+
+	<!-- google-code-prettify -->
+	<link href="/google-code-prettify/prettify.css" rel="stylesheet" type="text/css" />
+	<script src="/google-code-prettify/prettify.js" type="text/javascript"></script>
+
+
+	<!-- SHA1 -->
+	<script type="text/javascript" src="/js/utf8.js"></script>
+	<script type="text/javascript" src="/js/sha1.js"></script>
+	<!-- MD5 -->
+	<script type="text/javascript" src="/js/md5.js"></script>
+	<!-- BASE64 -->
+	<script type="text/javascript" src="/js/base64.js"></script>
+	<!-- jquery -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script>
+		!window.jQuery && document.write('<script src="/devcon/js/jquery-1.4.3.min.js"><\/script>');
+	</script>
+
+	<script type="text/javascript" src="/js/ga.utils.js" charset="utf-8"> </script>
+
+	<SCRIPT type=text/javascript>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-29504452-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+		ll1=location.href;ll2=ll1.slice(21);
+		ll3=ll2.replace("/", ".");
+		_gaq.push(['_setCustomVar',1,gaUtil.iddd,ll3,1]);
+	</SCRIPT>
+</head>
+
+
+<body id="TOP" onload="prettyPrint()">
+<div id="dai">
+
+	
+
+<script type="text/javascript">
+		<!--
+
+		var set=0;
+
+		function f_submit() {
+
+			if(set==0){
+				set=1;
+			}else{
+				alert("ソースコード反映ボタンを押してから再実行して下さい。");
+				return false;
+			}
+
+			var order = new Order();
+			order.pay_method			= "";
+			order.merchant_id           = "30132";
+			order.service_id            = "001";
+			order.cust_code             = "Merchant_TestUser_999999";
+			order.sps_cust_no           = "";
+			order.sps_payment_no        = "";
+			order.order_id              = "7f18c6dd63514ee055fa8abc884bdca3";
+			order.item_id               = "T_0003";
+			order.pay_item_id           = "";
+			order.item_name             = "テスト商品";
+			order.tax                   = "";
+			order.amount                = "1";
+			order.pay_type              = "0";
+			order.auto_charge_type      = "";
+			order.service_type          = "0";
+			order.div_settele           = "";
+			order.last_charge_month     = "";
+			order.camp_type             = "";
+			order.tracking_id           = "";
+			order.terminal_type         = "0";
+			order.success_url           = "http://stbfep.sps-system.com/MerchantPaySuccess.jsp";
+			order.cancel_url            = "http://stbfep.sps-system.com/MerchantPayCancel.jsp";
+			order.error_url             = "http://stbfep.sps-system.com/MerchantPayError.jsp";
+			order.pagecon_url           = "http://stbfep.sps-system.com/MerchantPayResultRecieveSuccess.jsp";
+			order.free1                 = "";
+			order.free2                 = "";
+			order.free3                 = "";
+			order.free_csv_input        = "LAST_NAME=鈴木,FIRST_NAME=太郎,LAST_NAME_KANA=スズキ,FIRST_NAME_KANA=タロウ,FIRST_ZIP=210,SECOND_ZIP=0001,ADD1=岐阜県,ADD2=あああ市あああ町,ADD3=,TEL=12345679801,MAIL=aaaa@bb.jp,ITEM_NAME=TEST ITEM";
+			order.request_date          = "20231125170843";
+			order.limit_second          = "";
+			order.hashkey               = "c48e0e2c7d04f0954594f14c7801bd430ca6263e";
+
+			var orderDetail = new OrderDetail();
+			orderDetail.dtl_rowno       = "1";
+			orderDetail.dtl_item_id     = "dtlItem_1";
+			orderDetail.dtl_item_name   = "明細商品名1";
+			orderDetail.dtl_item_count  = "1";
+			orderDetail.dtl_tax         = "1";
+			orderDetail.dtl_amount      = "1";
+			orderDetail.dtl_free1       = "";
+			orderDetail.dtl_free2       = "";
+			orderDetail.dtl_free3       = "";
+			order.orderDetail.push(orderDetail);
+
+			// フリーCSV
+			order.free_csv              = base64.encode(order.free_csv_input, 1);
+
+			//チェックサム
+			order.sps_hashcode          = Sha1.hash( order.toString() );
+
+			$('input[name="free_csv"]').val( order.free_csv );
+			$('input[name="test1"]').val( order.toString() );
+			$('input[name="test2"]').val( order.sps_hashcode );
+
+			feppost(order);
+		}
+
+		// オブジェクト定義[OrderDetail]
+		function OrderDetail()
+		{
+			this.toString = function() {
+				var result =
+					this.dtl_rowno +
+					this.dtl_item_id +
+					this.dtl_item_name +
+					this.dtl_item_count +
+					this.dtl_tax +
+					this.dtl_amount +
+					this.dtl_free1 +
+					this.dtl_free2 +
+					this.dtl_free3;
+				return result;
+			}
+		}
+
+		// オブジェクト定義[Order]
+		function Order()
+		{
+			this.orderDetail = new Array();
+			this.toString = function() {
+
+				var resultOrderDetail = "";
+				for (i = 0; i < this.orderDetail.length; i++) {
+				    resultOrderDetail = resultOrderDetail + this.orderDetail[i].toString();
+				}
+
+				var result =
+					this.pay_method +
+					this.merchant_id +
+					this.service_id +
+					this.cust_code +
+					this.sps_cust_no +
+					this.sps_payment_no +
+					this.order_id +
+					this.item_id +
+					this.pay_item_id +
+					this.item_name +
+					this.tax +
+					this.amount +
+					this.pay_type +
+					this.auto_charge_type +
+					this.service_type +
+					this.div_settele +
+					this.last_charge_month +
+					this.camp_type +
+					this.tracking_id +
+					this.terminal_type +
+					this.success_url +
+					this.cancel_url +
+					this.error_url +
+					this.pagecon_url +
+					this.free1 +
+					this.free2 +
+					this.free3 +
+					this.free_csv +
+					resultOrderDetail +
+					this.request_date +
+					this.limit_second +
+					this.hashkey;
+				return result;
+			};
+		}
+
+		// 日時の取得
+		function getYYYYMMDDHHMMSS(){
+			var now = new Date();
+			return now.getFullYear() + zeroPadding(now.getMonth() + 1) + zeroPadding(now.getDate()) +
+			       zeroPadding(now.getHours()) + zeroPadding(now.getMinutes()) + zeroPadding(now.getSeconds());
+		}
+
+		function zeroPadding(num) {
+			if (num < 10) { num = "0" + num; }
+			return num + "";
+		}
+
+		function feppost(order) {
+
+			var connectUrl = "https://stbfep.sps-system.com/f01/FepBuyInfoReceive.do";
+			var form =
+				$('<form></form>',{action:connectUrl,target:'receiver',method:'POST'}).hide();
+
+			//			var form = $('<form></form>',{action:'http://stbfep.sps-system.com/f01/FepBuyInfoReceive.do',target:'receiver',method:'POST'}).hide();
+//			var form = $('<form></form>',{action:'https://stbfep.sps-system.com/Extra/BuyRequestAction.do',target:'receiver',method:'POST'}).hide();
+
+			var body = $('body');
+			body.append(form);
+			form.append($('<input>',{type:'hidden',name:'pay_method'        ,value:order.pay_method                  }));
+			form.append($('<input>',{type:'hidden',name:'merchant_id'       ,value:order.merchant_id                 }));
+			form.append($('<input>',{type:'hidden',name:'service_id'        ,value:order.service_id                  }));
+			form.append($('<input>',{type:'hidden',name:'cust_code'         ,value:order.cust_code                   }));
+			form.append($('<input>',{type:'hidden',name:'sps_cust_no'       ,value:order.sps_cust_no                 }));
+			form.append($('<input>',{type:'hidden',name:'sps_payment_no'    ,value:order.sps_payment_no              }));
+			form.append($('<input>',{type:'hidden',name:'order_id'          ,value:order.order_id                    }));
+			form.append($('<input>',{type:'hidden',name:'item_id'           ,value:order.item_id                     }));
+			form.append($('<input>',{type:'hidden',name:'pay_item_id'       ,value:order.pay_item_id                 }));
+			form.append($('<input>',{type:'hidden',name:'item_name'         ,value:order.item_name                   }));
+			form.append($('<input>',{type:'hidden',name:'tax'               ,value:order.tax                         }));
+			form.append($('<input>',{type:'hidden',name:'amount'            ,value:order.amount                      }));
+			form.append($('<input>',{type:'hidden',name:'pay_type'          ,value:order.pay_type                    }));
+			form.append($('<input>',{type:'hidden',name:'auto_charge_type'  ,value:order.auto_charge_type            }));
+			form.append($('<input>',{type:'hidden',name:'service_type'      ,value:order.service_type                }));
+			form.append($('<input>',{type:'hidden',name:'div_settele'       ,value:order.div_settele                 }));
+			form.append($('<input>',{type:'hidden',name:'last_charge_month' ,value:order.last_charge_month           }));
+			form.append($('<input>',{type:'hidden',name:'camp_type'         ,value:order.camp_type                   }));
+			form.append($('<input>',{type:'hidden',name:'tracking_id'       ,value:order.tracking_id                 }));
+			form.append($('<input>',{type:'hidden',name:'terminal_type'     ,value:order.terminal_type               }));
+			form.append($('<input>',{type:'hidden',name:'success_url'       ,value:order.success_url                 }));
+			form.append($('<input>',{type:'hidden',name:'cancel_url'        ,value:order.cancel_url                  }));
+			form.append($('<input>',{type:'hidden',name:'error_url'         ,value:order.error_url                   }));
+			form.append($('<input>',{type:'hidden',name:'pagecon_url'       ,value:order.pagecon_url                 }));
+			form.append($('<input>',{type:'hidden',name:'free1'             ,value:order.free1                       }));
+			form.append($('<input>',{type:'hidden',name:'free2'             ,value:order.free2                       }));
+			form.append($('<input>',{type:'hidden',name:'free3'             ,value:order.free3                       }));
+			form.append($('<input>',{type:'hidden',name:'free_csv'          ,value:order.free_csv                    }));
+			form.append($('<input>',{type:'hidden',name:'request_date'      ,value:order.request_date                }));
+			form.append($('<input>',{type:'hidden',name:'limit_second'      ,value:order.limit_second                }));
+			form.append($('<input>',{type:'hidden',name:'hashkey'           ,value:order.hashkey                     }));
+			form.append($('<input>',{type:'hidden',name:'sps_hashcode'      ,value:order.sps_hashcode                }));
+
+			for (i = 0; i < order.orderDetail.length; i++) {
+				form.append($('<input>',{type:'hidden',name:'dtl_rowno'         ,value:order.orderDetail[i].dtl_rowno             }));
+				form.append($('<input>',{type:'hidden',name:'dtl_item_id'       ,value:order.orderDetail[i].dtl_item_id           }));
+				form.append($('<input>',{type:'hidden',name:'dtl_item_name'     ,value:order.orderDetail[i].dtl_item_name         }));
+				form.append($('<input>',{type:'hidden',name:'dtl_item_count'    ,value:order.orderDetail[i].dtl_item_count        }));
+				form.append($('<input>',{type:'hidden',name:'dtl_tax'           ,value:order.orderDetail[i].dtl_tax               }));
+				form.append($('<input>',{type:'hidden',name:'dtl_amount'        ,value:order.orderDetail[i].dtl_amount            }));
+				form.append($('<input>',{type:'hidden',name:'dtl_free1'         ,value:order.orderDetail[i].dtl_free1             }));
+				form.append($('<input>',{type:'hidden',name:'dtl_free2'         ,value:order.orderDetail[i].dtl_free2             }));
+				form.append($('<input>',{type:'hidden',name:'dtl_free3'         ,value:order.orderDetail[i].dtl_free3             }));
+			}
+
+			form.submit();
+		}
+		// -->
+
+</script>
+
+<div id="contents_area">
+
+	<h2>サンドボックス接続</h2>
+
+	<h3>
+		<img src="/img/blue_shikaku.gif" width="20" height="20" alt="購入要求API　接続情報" />&nbsp;購入要求API　接続情報
+	</h3>
+
+	<form action="/solution_api/sandbox/A010201" id="SolutionApiSandbox/A010201Form" method="post"><div style="display:none;"><input type="hidden" name="_method" value="POST" /></div>		<div id="param_box">
+			<table cellpadding="0" cellspacing="0" summary="パラメータ">
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">支払方法：X(1000)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][pay_method]" type="text" class="param_size" size="30" value="" id="SbxOrderPayMethod" />					</td>
+				</tr>
+				<tr bgcolor="#FFECF8">
+					<th class="param_left"><font size="2" color="red">ﾏｰﾁｬﾝﾄID：9(5)：固定</font></th>
+					<td class="param_right">
+						<div class="input_left">
+							<input name="data[SbxOrder][merchant_id]" type="text" class="param_size" size="10" value="30132" readonly="readonly" id="SbxOrderMerchantId" />						</div>
+						<div class="input_right">
+							※テスト接続用の為に固定値にしてます。
+						</div>
+						<div style="clear:both;"></div>
+					</td>
+				</tr>
+				<tr bgcolor="#FFECF8">
+					<th class="param_left"><font size="2" color="red">ｻｰﾋﾞｽID：9(3)：固定</font></th>
+					<td class="param_right">
+						<div class="input_left">
+							<input name="data[SbxOrder][service_id]" type="text" class="param_size" size="10" value="001" readonly="readonly" id="SbxOrderServiceId" />						</div>
+						<div class="input_right">
+							※テスト接続用の為に固定値にしてます。
+						</div>
+						<div style="clear:both;"></div>
+					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left" color="blue"><font size="2" color="blue">顧客ID：X(64)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][cust_code]" type="text" class="param_size" size="55" value="Merchant_TestUser_999999" id="SbxOrderCustCode" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">SPS顧客ID：9(12)：固定</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][sps_cust_no]" type="text" class="param_size" size="30" value="" id="SbxOrderSpsCustNo" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">SPS支払方法管理番号：9(3)：固定</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][sps_payment_no]" type="text" class="param_size" size="10" value="" id="SbxOrderSpsPaymentNo" />					</td>
+				</tr>
+				<tr bgcolor="#FFECF8">
+					<th class="param_left"><font size="2" color="red">購入ID：X(38)：可変</font></th>
+					<td class="param_right">
+						<div class="input_left">
+							<input name="data[SbxOrder][order_id]" type="text" class="param_size" size="55" value="7f18c6dd63514ee055fa8abc884bdca3" id="SbxOrderOrderId" />						</div>
+						<div class="input_right">
+							※テスト接続用の為に、接続時に新たな値を払い出してます。
+						</div>
+						<div style="clear:both;"></div>
+					</td>
+				</tr>
+				<tr bgcolor="#FFECF8">
+					<th class="param_left"><font size="2" color="red">商品ID：X(32)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][item_id]" type="text" class="param_size" size="55" value="T_0003" id="SbxOrderItemId" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">外部決済機関商品ID：X(32)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][pay_item_id]" type="text" class="param_size" size="55" value="" id="SbxOrderPayItemId" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">商品名称：M(40)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][item_name]" type="text" class="param_size" size="55" value="テスト商品" id="SbxOrderItemName" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">税額：9(8)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][tax]" type="text" class="param_size" size="10" value="" id="SbxOrderTax" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">金額(税込)：9(8)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][amount]" type="text" class="param_size" size="10" value="1" id="SbxOrderAmount" />					</td>
+				</tr>
+				<tr bgcolor="#FFECF8">
+					<th class="param_left"><font size="2" color="red">購入ﾀｲﾌﾟ：9(1)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][pay_type]" type="text" class="param_size" size="10" value="0" id="SbxOrderPayType" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">自動課金ﾀｲﾌﾟ：9(1)：固定</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][auto_charge_type]" type="text" class="param_size" size="10" value="" id="SbxOrderAutoChargeType" />					</td>
+				</tr>
+				<tr bgcolor="#FFECF8">
+					<th class="param_left"><font size="2" color="red">ｻｰﾋﾞｽﾀｲﾌﾟ：9(1)：固定</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][service_type]" type="text" class="param_size" size="10" value="0" id="SbxOrderServiceType" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">決済区分：9(1)：固定</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][div_settele]" type="text" class="param_size" size="10" value="" id="SbxOrderDivSettele" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">最終課金月：9(6)：yyyyMM固定</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][last_charge_month]" type="text" class="param_size" size="10" value="" id="SbxOrderLastChargeMonth" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">ｷｬﾝﾍﾟｰﾝﾀｲﾌﾟ：9(1)：固定</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][camp_type]" type="text" class="param_size" size="10" value="" id="SbxOrderCampType" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">ﾄﾗｯｷﾝｸﾞID：X(14)：固定</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrder][tracking_id]" type="text" class="param_size" size="30" value="" id="SbxOrderTrackingId" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">顧客利用端末ﾀｲﾌﾟ：9(1)：固定値</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][terminal_type]" type="text" class="param_size" size="10" value="0" id="SbxOrderTerminalType" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">決済完了時URL：X(500)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][success_url]" type="text" class="param_size" size="130" value="http://stbfep.sps-system.com/MerchantPaySuccess.jsp" id="SbxOrderSuccessUrl" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">決済キャンセル時URL：X(500)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][cancel_url]" type="text" class="param_size" size="130" value="http://stbfep.sps-system.com/MerchantPayCancel.jsp" id="SbxOrderCancelUrl" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">エラー時URL：X(500)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][error_url]" type="text" class="param_size" size="130" value="http://stbfep.sps-system.com/MerchantPayError.jsp" id="SbxOrderErrorUrl" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">決済通知用CGI：X(500)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][pagecon_url]" type="text" class="param_size" size="130" value="http://stbfep.sps-system.com/MerchantPayResultRecieveSuccess.jsp" id="SbxOrderPageconUrl" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">自由欄１：M(20)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][free1]" type="text" class="param_size" size="130" value="" id="SbxOrderFree1" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">自由欄２：M(20)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][free2]" type="text" class="param_size" size="130" value="" id="SbxOrderFree2" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">自由欄３：M(20)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][free3]" type="text" class="param_size" size="130" value="" id="SbxOrderFree3" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">FREE CSV INPUT：M(4000)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][free_csv_input]" type="text" class="param_size" size="130" value="LAST_NAME=鈴木,FIRST_NAME=太郎,LAST_NAME_KANA=スズキ,FIRST_NAME_KANA=タロウ,FIRST_ZIP=210,SECOND_ZIP=0001,ADD1=岐阜県,ADD2=あああ市あああ町,ADD3=,TEL=12345679801,MAIL=aaaa@bb.jp,ITEM_NAME=TEST ITEM" id="SbxOrderFreeCsvInput" />					</td>
+				</tr>
+				<tr bgcolor="#FFECF8">
+					<th class="param_left"><font size="2" color="red">明細行番号：9(3)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrderDetail][dtl_rowno]" type="text" class="param_size" size="10" value="1" id="SbxOrderDetailDtlRowno" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">明細商品ID：X(20)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrderDetail][dtl_item_id]" type="text" class="param_size" size="30" value="dtlItem_1" id="SbxOrderDetailDtlItemId" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">明細商品名称：M(40)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrderDetail][dtl_item_name]" type="text" class="param_size" size="55" value="明細商品名1" id="SbxOrderDetailDtlItemName" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">明細数量：9(6)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrderDetail][dtl_item_count]" type="text" class="param_size" size="10" value="1" id="SbxOrderDetailDtlItemCount" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">明細税額：9(8)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrderDetail][dtl_tax]" type="text" class="param_size" size="10" value="1" id="SbxOrderDetailDtlTax" />					</td>
+				</tr>
+				<tr bgcolor="#ECFFFF">
+					<th class="param_left"><font size="2" color="blue">明細金額：9(8)：可変</font></th>
+					<td class="param_right">
+						<input name="data[SbxOrderDetail][dtl_amount]" type="text" class="param_size" size="10" value="1" id="SbxOrderDetailDtlAmount" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">明細自由欄１：M(3000)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrderDetail][dtl_free1]" type="text" class="param_size" size="130" value="" id="SbxOrderDetailDtlFree1" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">明細自由欄２：M(3000)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrderDetail][dtl_free2]" type="text" class="param_size" size="130" value="" id="SbxOrderDetailDtlFree2" />					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">明細自由欄３：M(3000)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrderDetail][dtl_free3]" type="text" class="param_size" size="130" value="" id="SbxOrderDetailDtlFree3" />					</td>
+				</tr>
+
+				<tr bgcolor="#FFECF8">
+					<th class="param_left">リクエスト日時：9(14)：<br />　yyyyMMddhhmmss固定</th>
+					<td class="param_right">
+						<div class="input_left">
+							<input name="data[SbxOrder][request_date]" type="text" class="param_size" size="20" value="20231125170843" id="SbxOrderRequestDate" />						</div>
+						<div class="input_right">
+							※テスト接続用の為に、接続時に新たな値を払い出してます。
+						</div>
+						<div style="clear:both;"></div>
+					</td>
+				</tr>
+				<tr bgcolor="#EFEFEF">
+					<th class="param_left">リクエスト許容時間：9(4)：可変</th>
+					<td class="param_right">
+						<input name="data[SbxOrder][limit_second]" type="text" class="param_size" size="30" value="" id="SbxOrderLimitSecond" />					</td>
+				</tr>
+				<tr bgcolor="#FFECF8">
+					<th class="param_left">ハッシュキー</th>
+					<td class="param_right">
+						<div class="input_left">
+							<input name="data[SbxOrder][hashkey]" type="text" class="param_size" size="55" value="c48e0e2c7d04f0954594f14c7801bd430ca6263e" readonly="readonly" id="SbxOrderHashkey" />						</div>
+						<div class="input_right">
+							※テスト接続用の為に固定値にしてます。
+						</div>
+						<div style="clear:both;"></div>
+					</td>
+				</tr>
+			</table>
+
+			<div id="reload_button">
+				<input type="submit" value="ソースコード反映" />			</div>
+
+		</div>
+
+	</form>
+	<div id="sample_code_title2">
+		<p>Sample Code [JavaScript]</p>
+	</div>
+
+	<div id="sand_box_text_area1">
+		<pre class="prettyprint" id="javascript">
+
 function f_submit() {
 
     var order = new Order();
@@ -211,6 +742,43 @@ function feppost(order) {
 
 	<form name="test" id="connect_area">
 			<div id="connect_button">
-				<button name="connect_button" onclick="f_submit()">Connect</button>
+				<button name="connect_button" onclick="f_submit(); return false;">Connect</button>
 			</div>
+			<div id="connect_button_comment">
+				<span>※画面中央部にある、ソースコード反映実施後に接続下さい。</span>
+			</div>
+			<div style="clear:both;"></div>
 	</form>
+
+
+</div><!--/#contents_area-->
+
+	<div id="footermenubox" class="clearfix">
+		<ul>
+			<li><a href="http://www.sbpayment.co.jp/ja/info_policy/index.html" target="_blank"><img src="/img/footer_menu01.gif" class="rollover" alt="情報セキュリティ基本方針" /></a></li>
+			<li><img src="/img/footer_menuline.gif" alt="" /></li>
+			<li><a href="http://www.sbpayment.co.jp/ja/privacy/index.html" target="_blank"><img src="/img/footer_menu02.gif" class="rollover" alt="個人情報について" /></a></li>
+			<li><img src="/img/footer_menuline.gif" alt="" /></li>
+			<li><a href="/pages/sitepolicy"><img src="/img/footer_menu03.gif" class="rollover" alt="サイトポリシー" /></a></li>
+			<li><img src="/img/footer_menuline.gif" alt="" /></li>
+			<li><a href="http://www.sbpayment.co.jp/" target="_blank"><img src="/img/footer_menu04.gif" class="rollover" alt="会社案内" /></a></li>
+			<li><img src="/img/footer_menuline.gif" alt="" /></li>
+		</ul>
+	</div><!-- / footermenubox -->
+
+	<div id="footer">
+		<div id="footerbox" class="clearfix">
+			<div id="footermenu">
+			<div id="slogo"><img src="/img/logo_softbank.gif" width="206" height="12" alt="ソフトバンク・ペイメント・サービス株式会社" /></div>
+			<div id="ftxt">デベロッパーコンソールはソフトバンク・ペイメント・サービス株式会社によって運営されています。</div>
+			<div id="copyright"><img src="/img/copyright.gif" width="300" height="11" alt="c SB Payment Service Corp. All rights reserved." /></div>
+		</div>
+	</div>
+
+
+</div><!--/#dai-->
+
+</body>
+</html>
+
+
