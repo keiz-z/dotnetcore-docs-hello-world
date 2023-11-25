@@ -57,22 +57,22 @@ function f_submit() {
     order.orderDetail.push(orderDetail);
 
     // フリーCSV
-    //function encodeBase64(str) {
+    function encodeBase64(str) {
         // 文字列をUTF-8のバイト配列に変換し、その後Base64にエンコード
-      //  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
-        //    function toSolidBytes(match, p1) {
-          //      return String.fromCharCode('0x' + p1);
-        //}));
-    //}
+        return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+            function toSolidBytes(match, p1) {
+                return String.fromCharCode('0x' + p1);
+        }));
+    }
     
-    //order.free_csv = encodeBase64(order.free_csv_input);
+    order.free_csv = encodeBase64(order.free_csv_input);
 
     //チェックサム
     // orderオブジェクトを文字列に変換
-     //var orderString = JSON.stringify(order);
+     var orderString = JSON.stringify(order);
 
 // CryptoJSを使用してSHA1ハッシュを生成
-    // order.sps_hashcode = CryptoJS.SHA1(orderString).toString();
+    order.sps_hashcode = CryptoJS.SHA1(orderString).toString();
     //order.sps_hashcode          =  CryptoJS.Sha1.hash( order.toString() );
 
     console.log("oderデータ: ", order);
