@@ -155,13 +155,14 @@ function getYYYYMMDDHHMMSS(){
 
 function zeroPadding(num) {
     if (num < 10) { num = "0" + num; }
-	return num + "";
+
+    return num + "";
 }
 
 function feppost(order) {
 
-    //var connectUrl = "https://stbfep.sps-system.com/f01/FepBuyInfoReceive.do";
-    var connectUrl = "https://stbfep.sps-system.com/Extra/BuyRequestAction.do";
+    var connectUrl = "https://stbfep.sps-system.com/f01/FepBuyInfoReceive.do";
+    //var connectUrl = "https://stbfep.sps-system.com/Extra/BuyRequestAction.do";
     var form =
         $('<form></form>',{action:connectUrl,target:'receiver',method:'POST'}).hide();
 
