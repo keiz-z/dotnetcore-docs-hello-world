@@ -57,7 +57,7 @@ function f_submit() {
     order.orderDetail.push(orderDetail);
 
     // フリーCSV
-    order.free_csv              = base64.encode(order.free_csv_input, 1);
+    order.free_csv              =  btoa(order.free_csv_input);
 
     //チェックサム
     order.sps_hashcode          = Sha1.hash( order.toString() );
