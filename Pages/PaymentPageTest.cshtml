@@ -4,18 +4,10 @@
     ViewData["Title"] = "決済画面";
 }
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
-</head>
-<body>
-    <h2>@ViewData["Title"]</h2>
-    <!-- 支払うボタン -->
-    <button id="payButton">支払う</button>
+<h2>支払いページテスト</h2>
 
-    <script src="~/js/sbps-connect.js"></script>
-</body>
-</html>
+<!-- JavaScriptファイルのリンク -->
+<script src="~/js/sbps-connect.js"></script>
+
+<!-- 支払いボタン -->
+<button onclick="processPayment()">支払いを実行</button>
