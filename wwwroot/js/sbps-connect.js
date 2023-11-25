@@ -68,7 +68,12 @@ function f_submit() {
     order.free_csv = encodeBase64(order.free_csv_input);
 
     //チェックサム
-    order.sps_hashcode          = Sha1.hash( order.toString() );
+    // orderオブジェクトを文字列に変換
+     var orderString = JSON.stringify(order);
+
+// CryptoJSを使用してSHA1ハッシュを生成
+     order.sps_hashcode = CryptoJS.SHA1(orderString).toString();
+    //order.sps_hashcode          =  CryptoJS.Sha1.hash( order.toString() );
 
     feppost(order);
 }
