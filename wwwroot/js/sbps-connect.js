@@ -75,6 +75,7 @@ function f_submit() {
      order.sps_hashcode = CryptoJS.SHA1(orderString).toString();
     //order.sps_hashcode          =  CryptoJS.Sha1.hash( order.toString() );
 
+    console.log("oderデータ: ", order);
     feppost(order);
 }
 
