@@ -39,7 +39,7 @@ function f_submit() {
     order.free2                 = "";
     order.free3                 = "";
     order.free_csv_input        =
-        "LAST_NAME=Suzuki,FIRST_NAME=太郎,LAST_NAME_KANA=スズキ,FIRST_NAME_KANA=タロウ,FIRST_ZIP=210,SECOND_ZIP=0001,ADD1=岐阜県,ADD2=あああ市あああ町,ADD3=,TEL=12345679801,MAIL=aaaa@bb.jp,ITEM_NAME=TEST ITEM";
+        "LAST_NAME=Suzuki,FIRST_NAME=Taro,LAST_NAME_KANA=,FIRST_NAME_KANA=,FIRST_ZIP=210,SECOND_ZIP=0001,ADD1=,ADD2=,ADD3=,TEL=12345679801,MAIL=aaaa@bb.jp,ITEM_NAME=TEST ITEM";
     order.request_date          = "20231125111718";
     order.limit_second          = "";
     order.hashkey               = "c48e0e2c7d04f0954594f14c7801bd430ca6263e";
@@ -47,7 +47,7 @@ function f_submit() {
     var orderDetail = new OrderDetail();
     orderDetail.dtl_rowno       = "1";
     orderDetail.dtl_item_id     = "dtlItem_1";
-    orderDetail.dtl_item_name   = "明細商品名1";
+    orderDetail.dtl_item_name   = "testproductdetail1";
     orderDetail.dtl_item_count  = "1";
     orderDetail.dtl_tax         = "1";
     orderDetail.dtl_amount      = "1";
